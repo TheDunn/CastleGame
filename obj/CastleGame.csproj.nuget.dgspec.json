@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/mitch/CastleGame/CastleGame.csproj": {}
+    "C:\\Users\\mitch\\Source\\CastleGame\\CastleGame.csproj": {}
   },
   "projects": {
-    "/home/mitch/CastleGame/CastleGame.csproj": {
+    "C:\\Users\\mitch\\Source\\CastleGame\\CastleGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mitch/CastleGame/CastleGame.csproj",
+        "projectUniqueName": "C:\\Users\\mitch\\Source\\CastleGame\\CastleGame.csproj",
         "projectName": "CastleGame",
-        "projectPath": "/home/mitch/CastleGame/CastleGame.csproj",
-        "packagesPath": "/home/mitch/.nuget/packages/",
-        "outputPath": "/home/mitch/CastleGame/obj/",
+        "projectPath": "C:\\Users\\mitch\\Source\\CastleGame\\CastleGame.csproj",
+        "packagesPath": "C:\\Users\\mitch\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mitch\\Source\\CastleGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/mitch/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\mitch\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -63,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

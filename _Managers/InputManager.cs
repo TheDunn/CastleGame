@@ -5,6 +5,7 @@ public static class InputManager
     private static KeyboardState _lastKeyboardState;
     private static Point _direction;
     public static Point Direction => _direction;
+    public static int ScrollValue => Mouse.GetState().ScrollWheelValue;
     public static Point MousePosition => Mouse.GetState().Position;
 
     public static void Update()

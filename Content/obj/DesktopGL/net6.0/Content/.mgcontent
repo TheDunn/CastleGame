@@ -4,7 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/home/mitch/CastleGame/Content/tiles.png</File>
+    <File>C:/Users/mitch/Source/CastleGame/Content/tiles.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
