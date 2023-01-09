@@ -11,7 +11,7 @@ public class Game1 : Game
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
-        //_graphics.IsFullScreen = true;
+        _graphics.IsFullScreen = true;
         IsMouseVisible = true;
     }
 

@@ -43,20 +43,20 @@ class Camera
         }
 
         if(InputManager.ScrollValue > _previousScrollValue)
-            Zoom = 0.05f;        
+            Zoom = 0.1f;        
         if(InputManager.ScrollValue < _previousScrollValue)
-            Zoom = -0.05f;
+            Zoom = -0.1f;
 
         _previousScrollValue = InputManager.ScrollValue;
 
-        _pos += movement*8;
+        _pos += movement * 8;
     }
 
     public Matrix GetTransformation()
     {
         _transform =
             Matrix.CreateTranslation(new Vector3(-_pos.X, -_pos.Y, 0)) *
-            Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
+            Matrix.CreateScale(new Vector3(Zoom, Zoom, 0)) *
             Matrix.CreateTranslation(new Vector3(_viewportWidth * 0.5f,
                 _viewportHeight * 0.5f, 0));
 
