@@ -4,8 +4,6 @@
 // Simplex Noise implementation offering 1D, 2D, and 3D forms w/ values in the range of 0 to 255.
 // Based on work by Heikki Törmälä (2012) and Stefan Gustavson (2006).
 
-using System;
-
 namespace CastleGame
 {
     /// <summary>
@@ -27,7 +25,7 @@ namespace CastleGame
             var values = new float[width, height];
             for (var i = 0; i < width; i++)
                 for (var j = 0; j < height; j++)
-                    values[i, j] = Generate(i * scale, j * scale) * 128 + 128;
+                    values[i, j] = Generate(i * scale, j * scale);
             return values;
         }
 
