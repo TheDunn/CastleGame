@@ -51,8 +51,11 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(new Color(71,45,60));
 
+        SamplerState state = new SamplerState();
+        state.Filter = TextureFilter.Point;
+
         _spriteBatch.Begin(SpriteSortMode.Deferred,
-                        null, null, null, null, null,
+                        null, state, null, null, null,
                         _camera.GetTransformation());
         _gameManager.Draw();
         _spriteBatch.End();

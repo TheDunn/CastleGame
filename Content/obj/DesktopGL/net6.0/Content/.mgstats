@@ -1,2 +1,3 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/mitch/Source/CastleGame/Content/entities.png","C:/Users/mitch/Source/CastleGame/Content/bin/DesktopGL/Content/entities.xnb","TextureProcessor","Texture2DContent",10363,143701,0.1395801
 "C:/Users/mitch/Source/CastleGame/Content/tiles.png","C:/Users/mitch/Source/CastleGame/Content/bin/DesktopGL/Content/tiles.xnb","TextureProcessor","Texture2DContent",40539,119765,0.1244542

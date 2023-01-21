@@ -4,11 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/mitch/Source/CastleGame/Content/entities.png</File>
-    <File>C:/Users/mitch/Source/CastleGame/Content/tiles.png</File>
+    <File>C:/Users/mitch/Source/CastleGame/Content/IsometricTRPGAssetPack_OutlinedEntities.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
+    <File>entities.png</File>
   </DestFiles>
 </SourceFileCollection>

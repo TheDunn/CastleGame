@@ -3,7 +3,7 @@ namespace CastleGame;
 public class Map
 {
     private readonly int MAP_HEIGHT = 8;
-    private readonly Point MAP_SIZE = new(200, 200);
+    private readonly Point MAP_SIZE = new(300, 300);
     private readonly Point TILE_SIZE = new(16,17);
     //private readonly Vector2 MAP_OFFSET = new(2f, 2);
     private readonly int[,,] _tilesArray;
@@ -19,6 +19,8 @@ public class Map
         _tiles = new Tile[MAP_HEIGHT, MAP_SIZE.X, MAP_SIZE.Y];
         var TileSheet = Globals.Content.Load<Texture2D>("tiles");
 
+        Noise.Seed = R.Next();
+        Console.WriteLine("Seed {0}", Noise.Seed);
         float[,] noiseValues1 = Noise.Calc2D(MAP_SIZE.X, MAP_SIZE.Y, 0.01f);
         float[,] noiseValues2 = Noise.Calc2D(MAP_SIZE.X, MAP_SIZE.Y, 0.03f); 
         float[,] treeNoise = Noise.Calc2D(MAP_SIZE.X, MAP_SIZE.Y, 0.04f); 
@@ -32,6 +34,7 @@ public class Map
             new Rectangle(TILE_SIZE.X*8,TILE_SIZE.Y*3, TILE_SIZE.X, TILE_SIZE.Y), //Tree stump
             new Rectangle(TILE_SIZE.X*9,TILE_SIZE.Y, TILE_SIZE.X, TILE_SIZE.Y), //Tree top
             new Rectangle(TILE_SIZE.X*10,0, TILE_SIZE.X, TILE_SIZE.Y), //Sand plant
+            new Rectangle(0,0,TILE_SIZE.X, TILE_SIZE.Y), //Dirt
         };
 
         TILE_SIZE.Y = (int) (TILE_SIZE.Y-1) / 2;
@@ -43,7 +46,7 @@ public class Map
                 int noise = (int) (((1 * noiseValues1[x,y] + 0.5 * noiseValues2[x,y]) / (1 + 0.5)) * 3 + 3);
                 int tree_noise = (int) (treeNoise[x,y] * 3 + 3);
     
-                //Prevent noise height exceeding map height
+                // Prevent noise height exceeding map height
                 if(noise > MAP_HEIGHT)
                     noise = MAP_HEIGHT;
 
@@ -57,7 +60,10 @@ public class Map
 
                 // Add trees
                 if(noise > 1 && tree_noise > 4 && R.Next(1,10) == 2)
-                    _tilesArray[noise+1,x,y] = 5;
+                    _tilesArray[noise+1,x,y] = 5;   
+                    
+                if(noise > 1 && tree_noise > 4 && R.Next(1,5) == 2)
+                    _tilesArray[noise,x,y] = 8;
 
                 if(noise > 1 && tree_noise == 3 && R.Next(1,30) == 2)
                     _tilesArray[noise+1,x,y] = 6;
@@ -120,7 +126,9 @@ public class Map
             for (int x = 0; x < MAP_SIZE.X; x++)
             {
                 for (int z = 0; z < MAP_HEIGHT; z++)
+                {
                     if(_tilesArray[z,x,y] != 0) _tiles[z,x,y].Draw();
+                }
             }
         }
     }
