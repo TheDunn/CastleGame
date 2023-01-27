@@ -3,13 +3,10 @@ namespace CastleGame;
 public class Map
 {
     private readonly int MAP_HEIGHT = 8;
-    private readonly Point MAP_SIZE = new(300, 300);
-    private readonly Point TILE_SIZE = new(16,17);
-    //private readonly Vector2 MAP_OFFSET = new(2f, 2);
+    public static Point MAP_SIZE = new(300, 300);
+    public static Point TILE_SIZE = new(16,17);
     private readonly int[,,] _tilesArray;
     private readonly Tile[,,] _tiles;
-    //private Point _keyboardSelected = new(0, 0);
-    // private Tile _lastMouseSelected;
 
     public Map()
     {
@@ -86,7 +83,7 @@ public class Map
         }
     }
 
-    private Vector2 MapToScreen(int mapX, int mapY, int mapZ)
+    public static Vector2 MapToScreen(int mapX, int mapY, int mapZ)
     {
         var screenX = ((mapX - mapY) * TILE_SIZE.X / 2);
         var screenY = ((mapY + mapX) * TILE_SIZE.Y / 2) - (mapZ * (TILE_SIZE.Y));
@@ -94,29 +91,16 @@ public class Map
         return new(screenX, screenY);
     }
 
-    // private Point ScreenToMap(Point mousePos)
-    // {
-    //     Vector2 cursor = new(mousePos.X - (int)(MAP_OFFSET.X * TILE_SIZE.X), mousePos.Y - (int)(MAP_OFFSET.Y * TILE_SIZE.Y));
+    public static Vector2 ScreenToMap(Point mousePos)
+    {   
+        Vector2 cursor = new(mousePos.X - (int)(TILE_SIZE.X), mousePos.Y - (int)(TILE_SIZE.Y));
 
-    //     var x = cursor.X + (2 * cursor.Y) - (TILE_SIZE.X / 2);
-    //     int mapX = (x < 0) ? -1 : (int)(x / TILE_SIZE.X);
-    //     var y = -cursor.X + (2 * cursor.Y) + (TILE_SIZE.X / 2);
-    //     int mapY = (y < 0) ? -1 : (int)(y / TILE_SIZE.X);
+        var x = cursor.X + (2 * cursor.Y) - (TILE_SIZE.X / 2);
+        int mapX = (x < 0) ? -1 : (int)(x / TILE_SIZE.X);
+        var y = -cursor.X + (2 * cursor.Y) + (TILE_SIZE.X / 2);
+        int mapY = (y < 0) ? -1 : (int)(y / TILE_SIZE.X);
 
-    //     return new(mapX, mapY); 
-    // }
-
-    public void Update()
-    {
-        // _lastMouseSelected?.MouseDeselect();
-
-        // var map = ScreenToMap(InputManager.MousePosition);
-
-        // if (map.X >= 0 && map.Y >= 0 && map.X < MAP_SIZE.X && map.Y < MAP_SIZE.Y)
-        // {
-        //     // _lastMouseSelected = _tiles[0, map.X, map.Y];
-        //     // _lastMouseSelected.MouseSelect();
-        // }
+        return new(mapX, mapY); 
     }
 
     public void Draw()

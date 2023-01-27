@@ -1,6 +1,6 @@
 namespace CastleGame;
 
-class Camera
+public class Camera
 {   
     private const float MAX_ZOOM = 0.2f;
     private const float MIN_ZOOM = 3f;
@@ -10,6 +10,11 @@ class Camera
     private static Vector2 _pos;
     private int _viewportWidth;
     private int _viewportHeight;
+
+    public Matrix TransformMatrix
+    {
+        get { return _transform; }
+    }
 
     public Camera(Viewport viewport)
     {
@@ -56,7 +61,7 @@ class Camera
     {
         _transform =
             Matrix.CreateTranslation(new Vector3(-_pos.X, -_pos.Y, 0)) *
-            Matrix.CreateScale(new Vector3(Zoom, Zoom, 0)) *
+            Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
             Matrix.CreateTranslation(new Vector3(_viewportWidth * 0.5f,
                 _viewportHeight * 0.5f, 0));
 

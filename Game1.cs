@@ -11,7 +11,7 @@ public class Game1 : Game
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
-        _graphics.IsFullScreen = true;
+        // _graphics.IsFullScreen = true;
         IsMouseVisible = true;
     }
 
@@ -32,7 +32,8 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _camera = new Camera(GraphicsDevice.Viewport);
-        Globals.SpriteBatch = _spriteBatch;    
+        Globals.SpriteBatch = _spriteBatch;   
+        Globals.Camera = _camera;
     }
 
     protected override void Update(GameTime gameTime)
